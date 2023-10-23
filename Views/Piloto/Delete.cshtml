@@ -1,0 +1,63 @@
+@using herramientas_parcial1_OliveraJorgeDaniel.ViewModels.PilotoViewModels;
+@model PilotoDeleteViewModel;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Datos del piloto a eliminar:</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoNombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoNombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoApellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoApellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoDni)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoDni)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoNumeroLicencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoNumeroLicencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoExpedicion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoExpedicion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PilotoPropietario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PilotoPropietario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehiculo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehiculo.VehiculoTipo)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PilotoId" />
+        <input type="submit" value="Eliminar Piloto" class="btn btn-danger" />
+        <br>
+        <br>
+        <a asp-action="Index">Volver</a>
+    </form>
+</div>

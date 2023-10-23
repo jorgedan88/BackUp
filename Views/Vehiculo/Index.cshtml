@@ -1,0 +1,73 @@
+@using herramientas_parcial1_OliveraJorgeDaniel.ViewModels.VehiculoViewModels;
+@model VehiculoIndexViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vehiculos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">+ Vehiculo</a>
+</p>
+
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Vehiculo">
+        <div class="col-6 form-group">
+            <input class="form-control" asp-for="NameFilter" />
+        </div>
+        <br>
+        <button class="btn btn-info" type="submit">Buscar</button>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiculoNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiculoApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiculoTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiculoMatricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiculoFabricacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.vehiculos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehiculoNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehiculoApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehiculoTipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehiculoMatricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehiculoFabricacion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VehiculoId" class="btn btn-warning">Modificar</a>
+                    <a asp-action="Details" asp-route-id="@item.VehiculoId" class="btn btn-primary">Detalle</a>
+                    <a asp-action="Delete" asp-route-id="@item.VehiculoId" class="btn btn-danger"
+                        onclick="return confirm('¿Esta seguro que quiere eliminar a este vehiculo?')">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
